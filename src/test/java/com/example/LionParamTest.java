@@ -3,15 +3,13 @@ package com.example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Spy;
-
-import java.util.List;
+import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class LionParamTest {
-    @Spy
-    Feline feline = new Feline();
+    @Mock
+    Feline feline;
     private final boolean expected;
     private final String checkedText;
 
