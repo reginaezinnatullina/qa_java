@@ -29,7 +29,6 @@ public class LionTest {
     @Test(expected = Exception.class)
     public void doesHaveManeTestThrowException() throws Exception{
         Lion lion = new Lion("Дитя", feline);
-        lion.doesHaveMane();
 
     }
 }

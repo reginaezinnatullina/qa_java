@@ -2,7 +2,6 @@ package com.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -11,33 +10,32 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
-    @Mock
-    Feline feline;
+    Feline feline = new Feline(); //В данном случае, без инициализации тесты не проходят!
     private final String expected = "Кошачьи";
     private final int numberOfKittens = 1;
     private final int countOfKittens = 7;
 
     @Test
     public void eatMeatTest() throws Exception {
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        assertEquals(expected, List.of("Животные", "Птицы", "Рыба"));
+        List<String> food = feline.eatMeat();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test
     public void getFamilyTest(){
-       String actual = feline.getFamily();
-        assertEquals("Ожидается другое семейство",expected, "Кошачьи");
+        String actual = feline.getFamily();
+        assertEquals(expected, actual);
     }
 
     @Test
     public void getKittensTest() {
         int actual = feline.getKittens();
-        assertEquals(numberOfKittens, 1);
+        assertEquals(numberOfKittens, actual);
     }
 
     @Test
     public void getKittensCountTest() {
         int actual = feline.getKittens(countOfKittens);
-        assertEquals("Количество котят не соответствует заданному", countOfKittens, 7);
+        assertEquals(countOfKittens, actual);
     }
 }
